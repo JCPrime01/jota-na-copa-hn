@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Você foi escolhido! – Jogador Caro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1263049232641635');
+  fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1263049232641635&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- Fim Meta Pixel -->
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #000117;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      color: #dadada;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============================================================
+       HERO SECTION
+    ============================================================ */
+    .hero {
+      width: 100%;
+      background-color: #000117;
+      padding: 0 20px 40px;
+    }
+
+    .hero__inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 0;
+    }
+
+    .hero__content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 48px 0;
+    }
+
+    .hero__subtitle {
+      font-size: clamp(20px, 2.4vw, 32px);
+      font-weight: 400;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .hero__title {
+      font-size: clamp(28px, 3.8vw, 48px);
+      font-weight: 700;
+      color: #ffce00;
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .hero__description {
+      font-size: clamp(14px, 1.2vw, 16px);
+      font-weight: 400;
+      color: #dadada;
+      line-height: 1.6;
+      text-align: left;
+      margin-bottom: 28px;
+      max-width: 420px;
+    }
+
+    .hero__description strong {
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .hero__subtext {
+      font-size: 14px;
+      font-weight: 400;
+      color: #9a9a9a;
+      margin-top: 12px;
+    }
+
+    .hero__image-wrap {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+
+    .hero__image-wrap img {
+      width: 100%;
+      max-width: 520px;
+      display: block;
+      object-fit: contain;
+    }
+
+    /* ============================================================
+       BOTÃO
+    ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffce00;
+      color: #000117;
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(15px, 1.4vw, 18px);
+      font-weight: 700;
+      padding: 18px 32px;
+      border-radius: 12px;
+      border: 1.5px solid #ffdf56;
+      text-decoration: none;
+      letter-spacing: -0.2px;
+      cursor: pointer;
+      transition: filter 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      white-space: nowrap;
+      box-shadow: 0 4px 24px rgba(255, 206, 0, 0.22);
+    }
+
+    .btn:hover,
+    .btn:focus {
+      filter: brightness(1.07);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(255, 206, 0, 0.35);
+      outline: none;
+    }
+
+    .btn:active {
+      transform: translateY(0);
+      filter: brightness(0.97);
+    }
+
+    /* ============================================================
+       SEPARADOR
+    ============================================================ */
+    .separator {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(0,162,31,0.6) 50%, transparent 100%);
+    }
+
+    /* ============================================================
+       CTA SECTION
+    ============================================================ */
+    .cta {
+      width: 100%;
+      background-color: rgba(0, 162, 31, 0.10);
+      padding: 64px 20px;
+    }
+
+    .cta__inner {
+      max-width: 560px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0;
+    }
+
+    .cta__label {
+      font-size: 11px;
+      font-weight: 400;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 8px;
+      line-height: 1;
+      margin-bottom: 28px;
+    }
+
+    .cta__heading-white {
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 900;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: -2px;
+      line-height: 1;
+    }
+
+    .cta__heading-yellow {
+      font-size: clamp(44px, 6.5vw, 76px);
+      font-weight: 900;
+      color: #ffce00;
+      text-transform: uppercase;
+      letter-spacing: -3px;
+      line-height: 1;
+      margin-bottom: 28px;
+    }
+
+    .cta__description {
+      font-size: clamp(14px, 1.2vw, 16px);
+      font-weight: 400;
+      color: #dadada;
+      line-height: 1.65;
+      text-align: center;
+      margin-bottom: 36px;
+      max-width: 480px;
+    }
+
+    .cta__description strong {
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .icon-list {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      list-style: none;
+      margin-top: 18px;
+    }
+
+    .icon-list__item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #dadada;
+    }
+
+    .icon-list__item i {
+      color: #ffce00;
+      font-size: 15px;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      width: 100%;
+      background-color: #000117;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 36px 20px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer__logo-row img {
+      height: 48px;
+      display: block;
+      object-fit: contain;
+    }
+
+    .footer__copy {
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.55);
+      text-align: center;
+    }
+
+    /* ============================================================
+       MOBILE — até 767px
+    ============================================================ */
+    @media (max-width: 767px) {
+
+      .hero {
+        padding: 0 0 32px;
+      }
+
+      .hero__inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero__image-wrap {
+        order: -1;
+        justify-content: center;
+        width: 100%;
+        max-height: 340px;
+        overflow: hidden;
+      }
+
+      .hero__image-wrap img {
+        width: 100%;
+        max-width: 100%;
+        height: 340px;
+        object-fit: cover;
+        object-position: top center;
+      }
+
+      .hero__content {
+        align-items: center;
+        text-align: center;
+        padding: 28px 20px 0;
+      }
+
+      .hero__subtitle {
+        font-size: 20px;
+        letter-spacing: 0;
+      }
+
+      .hero__title {
+        font-size: 34px;
+        letter-spacing: -1.5px;
+        line-height: 1.05;
+        margin-bottom: 16px;
+      }
+
+      .hero__description {
+        text-align: center;
+        font-size: 15px;
+        max-width: 100%;
+        margin-bottom: 24px;
+      }
+
+      .btn {
+        width: 100%;
+        font-size: 17px;
+        padding: 18px 20px;
+        border-radius: 10px;
+      }
+
+      .hero__subtext {
+        font-size: 13px;
+        margin-top: 10px;
+      }
+
+      .cta {
+        padding: 48px 20px;
+      }
+
+      .cta__label {
+        font-size: 10px;
+        letter-spacing: 5px;
+        margin-bottom: 20px;
+      }
+
+      .cta__heading-white {
+        font-size: 38px;
+        letter-spacing: -1.5px;
+      }
+
+      .cta__heading-yellow {
+        font-size: 48px;
+        letter-spacing: -2px;
+        margin-bottom: 22px;
+      }
+
+      .cta__description {
+        font-size: 15px;
+        margin-bottom: 28px;
+      }
+
+      .icon-list {
+        gap: 20px;
+      }
+
+      .footer {
+        padding: 28px 20px 24px;
+        gap: 16px;
+      }
+
+      .footer__logo-row img {
+        height: 40px;
+      }
+    }
+
+    /* ============================================================
+       MOBILE PEQUENO — até 380px
+    ============================================================ */
+    @media (max-width: 380px) {
+      .hero__title {
+        font-size: 28px;
+      }
+
+      .cta__heading-white {
+        font-size: 32px;
+      }
+
+      .cta__heading-yellow {
+        font-size: 40px;
+      }
+
+      .icon-list {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+
+    /* ============================================================
+       TABLET — 768px a 1024px
+    ============================================================ */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .hero {
+        padding: 0 24px 40px;
+      }
+
+      .hero__title {
+        font-size: 36px;
+      }
+
+      .hero__subtitle {
+        font-size: 24px;
+      }
+
+      .hero__image-wrap img {
+        max-width: 380px;
+      }
+
+      .cta__heading-white {
+        font-size: 48px;
+      }
+
+      .cta__heading-yellow {
+        font-size: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===========================
+       HERO
+  =========================== -->
+  <section class="hero">
+    <div class="hero__inner">
+
+      <div class="hero__content">
+        <h2 class="hero__subtitle">A Copa Começou e</h2>
+        <h1 class="hero__title">Você foi o escolhido</h1>
+        <p class="hero__description">
+          Toda copa do mundo o Jota faz um projeto dos 100 aos 100 MIL
+          com entradas exclusivas da copa do mundo! Responda essas perguntas e
+          descubra se você é apto para participar do
+          <strong>MAIOR PROJETO DA COPA DO MUNDO!</strong>
+        </p>
+        <a
+          href="https://smartico-dash.up.railway.app/track/b215d5e4-a406-450d-bc5f-f9687470105e/redirect?utm_campaign=bateu"
+          class="btn"
+          onclick="fbq('track', 'CompleteRegistration');">
+          PARTICIPAR DO PROJETO
+        </a>
+        <p class="hero__subtext">1 minuto – Poucas perguntas</p>
+      </div>
+
+      <div class="hero__image-wrap">
+        <img
+          src="https://grupojogadorcaro.com.br/wp-content/uploads/2026/06/HERO_LP_JP_COPA.png"
+          alt="Jogador Caro – Copa do Mundo 2026"
+          loading="eager"
+        />
+      </div>
+
+    </div>
+  </section>
+
+  <div class="separator"></div>
+
+  <!-- ===========================
+       CTA
+  =========================== -->
+  <section class="cta">
+    <div class="cta__inner">
+      <p class="cta__label">Copa do Mundo 2026</p>
+      <h2 class="cta__heading-white">ATENDA AO</h2>
+      <h2 class="cta__heading-yellow">CHAMADO DO<br>JOTA</h2>
+      <p class="cta__description">
+        Responda algumas perguntas rápidas e descubra se você é apto
+        participar do projeto. Sem pegadinha, o teste é gratuito, em poucos
+        cliques você já recebe o seu <strong>ACESSO EXCLUSIVO!</strong>
+      </p>
+      <a
+        href="https://smartico-dash.up.railway.app/track/b215d5e4-a406-450d-bc5f-f9687470105e/redirect?utm_campaign=bateu"
+        class="btn"
+        onclick="fbq('track', 'CompleteRegistration');">
+        COMEÇAR O TESTE
+      </a>
+      <ul class="icon-list">
+        <li class="icon-list__item">
+          <i class="fas fa-check" aria-hidden="true"></i>
+          Gratuito
+        </li>
+        <li class="icon-list__item">
+          <i class="far fa-clock" aria-hidden="true"></i>
+          1 Minuto
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===========================
+       FOOTER
+  =========================== -->
+  <footer class="footer">
+    <div class="footer__logo-row">
+      <img
+        src="https://grupojogadorcaro.com.br/wp-content/uploads/2026/06/Selo-1.png"
+        alt="Jota – Jogue com responsabilidade"
+        loading="lazy"
+      />
+    </div>
+    <p class="footer__copy">Jogador Caro 2026 © Todos o direitos reservados</p>
+  </footer>
+
+</body>
+</html>
